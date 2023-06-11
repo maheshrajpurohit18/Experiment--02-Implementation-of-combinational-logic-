@@ -14,12 +14,9 @@ F2=xy’z+x’y’z+w’xy+wx’y+wxy
 
 
 ## Theory
-Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. 
-
-## Logic Diagram
 Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. ###Using NAND gates NAND gate is actually a combination of two logic gates i.e. AND gate followed by NOT gate. So its output is complement of the output of an AND gate.This gate can have minimum two inputs, output is always one. By using only NAND gates, we can realize all logic functions: AND, OR, NOT, X-OR, X-NOR, NOR. So this gate is also called as universal gate. First note that the entire expression is inverted and we have three terms ANDed. This means that we must use a 3-input NAND gate. Each of the three terms is, itself, a NAND expression. Finally, negated single terms can be generates with a 2-input NAND gate acting as an inverted. F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
 
-Using OR gates NOR gate is actually a combination of two logic gates: OR gate followed by NOT gate. So its output is complement of the output of an OR gate. This gate can have minimum two inputs, output is always one. By using only NOR gates, we can realize all logic functions: AND, OR, NOT, Ex-OR, Ex-NOR, NAND. So this gate is also called universal gate. Designing a circuit with NOR gates only uses the same basic techniques as designing a circuit with NAND gates; that is, the application of deMorgan’s theorem. The only difference between NOR gate design and NAND gate design is that the former must eliminate product terms and the later must eliminate sum terms. F2=xy’z+x’y’z+w’xy+wx’y+wxy
+###Using OR gates NOR gate is actually a combination of two logic gates: OR gate followed by NOT gate. So its output is complement of the output of an OR gate. This gate can have minimum two inputs, output is always one. By using only NOR gates, we can realize all logic functions: AND, OR, NOT, Ex-OR, Ex-NOR, NAND. So this gate is also called universal gate. Designing a circuit with NOR gates only uses the same basic techniques as designing a circuit with NAND gates; that is, the application of deMorgan’s theorem. The only difference between NOR gate design and NAND gate design is that the former must eliminate product terms and the later must eliminate sum terms. F2=xy’z+x’y’z+w’xy+wx’y+wxy
 
 ### Procedure
 ## Step 1:
@@ -51,34 +48,35 @@ Program to implement the given logic function and to verify its operations in qu
 Developed by: Mahesh Raj Purohit.J
 RegisterNumber: 212222240058 
 */
-## F1:
+
 ```
-module ff(a,b,c,d,f1);
+F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
+module EXP2a (a,b,c,d,f1);
 input a,b,c,d;
 output f1;
-assign f1 = (~b&~d) | (~a&b&d) | (a&b&~c);
+assign f1 = (~b&~d)|(~a&b&d)|(a&b&~c); 
 endmodule
-```
-## F2:
-```
-module de (w,x,y,z,f2);
-input w,x,y,z;
+
+for F2=xy’z+x’y’z+w’xy+wx’y+wxy
+
+module EXP2b (w,x,y,z,f2); 
+input w,x,y,z; 
 output f2;
 assign f2 = (x&y)|(w&y)|(~y&z);
-endmodule
+endmodule */
 ```
 ## RTL realization
 ## F1
-![image](https://user-images.githubusercontent.com/118753139/243920601-b8b805f9-5fa3-4e7d-b205-84dbd7c6c1a6.png)
+![image](https://user-images.githubusercontent.com/119475943/233779704-2b0fbd70-e26f-4bc8-975c-66e843343575.png)
 ## F2
-![image](https://user-images.githubusercontent.com/118753139/243920638-a8a580dc-8bd0-4016-b766-6113b04797c4.png)
+![image](https://user-images.githubusercontent.com/119475943/233779710-12c90d88-5a09-4893-b7ed-89fbff78b1b4.png)
 ## Output:
 ## Timing Diagram
 ## F1
-![image](https://user-images.githubusercontent.com/118753139/243920729-cc95558a-392e-41fe-898e-340f3b5bc7a5.png)
+![image](https://user-images.githubusercontent.com/119475943/233779663-0dab23b6-b7ce-4991-8577-4e474f732b40.png)
 
 ## F2
-![image](https://user-images.githubusercontent.com/118753139/243920766-fe767a7b-fc2e-4f7a-88dc-4c47626322b3.png)
+![image](https://user-images.githubusercontent.com/119475943/233779676-e5e92010-a115-4c80-bc84-1f2fa4c80862.png)
 
 ## Truth Table:
 ![image](https://user-images.githubusercontent.com/118753139/243920865-c59ea9e9-5042-4b16-bddb-908dbb31fc15.png)
